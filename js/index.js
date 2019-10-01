@@ -13,6 +13,7 @@ var workHoursArr = [
 localStorage.setItem('workHoursArr', JSON.stringify(workHoursArr));
 // retrieve data from local storage
 var scheduleFromLocalStorage = JSON.parse(localStorage.getItem('workHoursArr'));
+
 // create calendar time slots
 function addTimeSlots(schedule) {
     schedule.forEach(item => {
@@ -46,10 +47,17 @@ addTimeSlots(scheduleFromLocalStorage);
 // save text from input to placeholder when save button is clicked.
 function updateTimeSlot() {
     var buttonNum = $(this).attr('target');
+    // console.log(buttonNum);
+    var inputValue = $(this).val();
+    console.log(inputValue);
     var $selectedButton = $(`#button-${buttonNum}`);
     $selectedButton.prop('disabled', false);
+    var parsedWorkHoursArr = JSON.parse(localStorage.getItem(workHoursArr));
+    // console.log(parsedWorkHoursArr)
+    var updateEvent = scheduleFromLocalStorage[buttonNum].event;
     $selectedButton.on('click', () => {
-        console.log('this works');
+        updateEvent = inputValue;
+        console.log(updateEvent);
         $selectedButton.prop('disabled', true);
     });
 }

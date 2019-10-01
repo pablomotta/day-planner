@@ -9757,27 +9757,31 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 1.5rem;
 }
 
-.portfolio-modal .portfolio-modal-title {
-  font-size: 2.25rem;
-  line-height: 2rem;
+.hours,
+.events,
+.save-button {
+  padding: 1.5rem;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@media (min-width: 992px) {
-  .portfolio-modal .portfolio-modal-title {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
+.save-button {
+  background-color: #1abc9c;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
-.portfolio-modal .close {
-  position: absolute;
-  z-index: 1;
-  right: 1.5rem;
-  top: 1rem;
-  font-size: 3rem;
-  line-height: 3rem;
-  color: #1abc9c;
-  opacity: 1;
+.save-button:active, .save-button:focus, .save-button:hover {
+  color: #fff;
+  background: #148f77;
+}
+
+.hours {
+  border-top: 0.01rem solid grey;
+  border-bottom: 0.01rem solid grey;
+}
+
+.events {
+  border: 0.01rem solid lightgray;
 }
 
 .footer {
