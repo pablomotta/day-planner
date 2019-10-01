@@ -46,11 +46,12 @@ addTimeSlots(scheduleFromLocalStorage);
 // save text from input to placeholder when save button is clicked.
 function updateTimeSlot() {
     var buttonNum = $(this).attr('target');
-    console.log(buttonNum);
-    $(`#button-${buttonNum}`)
-        // .attr(`target=${buttonNum}`)
-        .prop('disabled', false);
-    $();
+    var $selectedButton = $(`#button-${buttonNum}`);
+    $selectedButton.prop('disabled', false);
+    $selectedButton.on('click', () => {
+        console.log('this works');
+        $selectedButton.prop('disabled', true);
+    });
 }
 
 $(document).on('click', '.events', updateTimeSlot);
