@@ -9561,6 +9561,12 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+input:focus {
+  outline: none !important;
+  border: 1px solid #698bac;
+  box-shadow: 0 0 10px #aabed1;
+}
+
 .divider-custom {
   margin: 1.25rem 0 1.5rem;
   width: 100%;
@@ -9765,6 +9771,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .save-button {
+  color: #fff;
   background-color: #1abc9c;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
