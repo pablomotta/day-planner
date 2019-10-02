@@ -13,6 +13,9 @@ var workHoursArr = [
 // create calendar time slots
 function addTimeSlots(schedule) {
     schedule.forEach(item => {
+        var currentHour = moment().format('hA');
+        // console.log(currentHour);
+
         var $div = $('<div class="hours col-md-1 col-sm-1"></div>');
         var $input = $('<input>');
         var $btn = $(
@@ -33,7 +36,20 @@ function addTimeSlots(schedule) {
             target: dataTarget,
             id: `button-${dataTarget}`
         });
-        $input.addClass('events col-md-10 col-sm-10');
+        $input.addClass('events col-md-10 col-sm-10 future');
+
+        if (hour < currentHour) {
+            console.log(`${hour} is in the past`);
+            $(`#input-${dataTarget}`).addClass('past');
+        }
+        if (hour === currentHour) {
+            console.log(`${hour} is in the present`);
+            $(`#input-${dataTarget}`).addClass('present');
+        }
+        if (hour > currentHour) {
+            console.log(`${hour} is in the future`);
+            $(`#input-${dataTarget}`).addClass('future');
+        }
 
         $('#time-slots').append($div, $input, $btn);
         $btn.prop('disabled', true);
@@ -57,7 +73,6 @@ $(document).on('click', '.save-button', function() {
     var inputValue = $selectedInput.val();
     var inputTarget = 'input-' + inputNum;
     localStorage.setItem(inputTarget, inputValue);
-    $selectedButton.prop('disabled', true);
 });
 
 $('.events').on('click', function() {
