@@ -1,68 +1,72 @@
 var workHoursArr = [
-    { id: '0', time: '9AM', event: 'add event here' },
-    { id: '1', time: '10AM', event: 'add event here' },
-    { id: '2', time: '11AM', event: 'add event here' },
-    { id: '3', time: '12PM', event: 'add event here' },
-    { id: '4', time: '1PM', event: 'add event here' },
-    { id: '5', time: '2PM', event: 'add event here' },
-    { id: '6', time: '3PM', event: 'add event here' },
-    { id: '7', time: '4PM', event: 'add event here' },
-    { id: '8', time: '5PM', event: 'add event here' }
+    { id: '0', time: '9AM' },
+    { id: '1', time: '10AM' },
+    { id: '2', time: '11AM' },
+    { id: '3', time: '12PM' },
+    { id: '4', time: '1PM' },
+    { id: '5', time: '2PM' },
+    { id: '6', time: '3PM' },
+    { id: '7', time: '4PM' },
+    { id: '8', time: '5PM' }
 ];
-// store data set to local storage
-localStorage.setItem('workHoursArr', JSON.stringify(workHoursArr));
-// retrieve data from local storage
-var scheduleFromLocalStorage = JSON.parse(localStorage.getItem('workHoursArr'));
 
 // create calendar time slots
 function addTimeSlots(schedule) {
     schedule.forEach(item => {
-        var $div = $('<div class="hours col-md-1"></div>');
+        var $div = $('<div class="hours col-md-1 col-sm-1"></div>');
         var $input = $('<input>');
-        var $btn = $('<button class="save-button col-md-1">Save</button>');
+        var $btn = $(
+            '<button class="save-button col-md-1 col-sm-1">Save</button>'
+        );
         var hour = item.time;
-        var event = item.event;
         var dataTarget = item.id;
 
         $div.text(hour);
 
         $input.attr({
             type: 'text',
-            placeholder: event,
-            target: dataTarget
+            target: dataTarget,
+            id: `input-${dataTarget}`
         });
 
         $btn.attr({
             target: dataTarget,
             id: `button-${dataTarget}`
         });
-        $btn.prop('disabled', true);
-        $input.addClass('events col-md-10');
+        $input.addClass('events col-md-10 col-sm-10');
 
         $('#time-slots').append($div, $input, $btn);
+        $btn.prop('disabled', true);
+        var localData = localStorage.getItem(`input-${dataTarget}`);
+        $input.val(localData);
     });
 }
-addTimeSlots(scheduleFromLocalStorage);
+addTimeSlots(workHoursArr);
 
-// save text from input to placeholder when save button is clicked.
-function updateTimeSlot() {
+//enable button related to input form.
+$(document).on('click', '.events', function() {
     var buttonNum = $(this).attr('target');
-    // console.log(buttonNum);
-    var inputValue = $(this).val();
-    console.log(inputValue);
     var $selectedButton = $(`#button-${buttonNum}`);
     $selectedButton.prop('disabled', false);
-    var parsedWorkHoursArr = JSON.parse(localStorage.getItem(workHoursArr));
-    // console.log(parsedWorkHoursArr)
-    var updateEvent = scheduleFromLocalStorage[buttonNum].event;
-    $selectedButton.on('click', () => {
-        updateEvent = inputValue;
-        console.log(updateEvent);
-        $selectedButton.prop('disabled', true);
-    });
+});
+
+//save input value to local storage
+$(document).on('click', '.save-button', function() {
+    var inputNum = $(this).attr('target');
+    var $selectedInput = $(`#input-${inputNum}`);
+    var inputValue = $selectedInput.val();
+    var inputTarget = 'input-' + inputNum;
+    localStorage.setItem(inputTarget, inputValue);
+});
+
+$('.save-button').on('click', function() {
+    $('.save-button').prop('disabled', true);
+});
+
+var time = moment().format('hA');
+console.log(time);
+// console.log(moment().isAfter('hA'));
+
+if ('7PM' < time) {
+    console.log('same hour');
 }
-
-$(document).on('click', '.events', updateTimeSlot);
-
-// var time = moment().format('hA');
-// console.log(time);
