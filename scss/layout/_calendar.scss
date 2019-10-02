@@ -1,3 +1,6 @@
+.calendar {
+    margin-top: 2rem;
+}
 .hours,
 .events,
 .save-button {
@@ -26,7 +29,12 @@
 .events {
     border: 0.01rem solid lightgray;
 }
-
-// background-color: rgb(172, 171, 177); passed time
-// background-color: rgb(210, 240, 222); current hour
-//background-color: rgb(162, 207, 233); future time
+.past {
+    background-color: rgb(172, 171, 177);
+}
+.present {
+    background-color: rgb(210, 240, 222);
+}
+.future {
+    background-color: rgb(162, 207, 233);
+}

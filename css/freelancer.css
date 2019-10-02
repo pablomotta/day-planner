@@ -9763,6 +9763,10 @@ input:focus {
   font-size: 1.5rem;
 }
 
+.calendar {
+  margin-top: 2rem;
+}
+
 .hours,
 .events,
 .save-button {
@@ -9793,6 +9797,18 @@ input:focus {
 
 .events {
   border: 0.01rem solid lightgray;
+}
+
+.past {
+  background-color: #acabb1;
+}
+
+.present {
+  background-color: #d2f0de;
+}
+
+.future {
+  background-color: #a2cfe9;
 }
 
 .footer {

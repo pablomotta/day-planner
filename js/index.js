@@ -57,16 +57,12 @@ $(document).on('click', '.save-button', function() {
     var inputValue = $selectedInput.val();
     var inputTarget = 'input-' + inputNum;
     localStorage.setItem(inputTarget, inputValue);
+    $selectedButton.prop('disabled', true);
 });
 
-$('.save-button').on('click', function() {
+$('.events').on('click', function() {
     $('.save-button').prop('disabled', true);
 });
 
-var time = moment().format('hA');
-console.log(time);
-// console.log(moment().isAfter('hA'));
-
-if ('7PM' < time) {
-    console.log('same hour');
-}
+// var time = moment().format('hA');
+// console.log(time);
