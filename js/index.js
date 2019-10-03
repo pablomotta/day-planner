@@ -65,12 +65,10 @@ $('.events').on('click', function() {
 
 workHoursArr.forEach(function(item) {
     var $inputSelected = $(`#input-${item.id}`);
-    console.log($inputSelected);
     var currentHour = moment().format('k');
     var currentHourInt = parseInt(currentHour);
-    // console.log(currentHourInt);
     var calendarHour = item.hourInt;
-    console.log(calendarHour);
+
     if (currentHourInt === calendarHour) {
         $inputSelected.addClass('present');
     }
@@ -81,22 +79,3 @@ workHoursArr.forEach(function(item) {
         $inputSelected.addClass('future');
     }
 });
-//
-// var currentHour = moment().format('h');
-// console.log(currentHour);
-
-// if (hour < currentHour) {
-//     // console.log(`${hour} is in the past`);
-//     $(`#input-${dataTarget}`).addClass('past');
-// }
-// if (hour === currentHour) {
-//     // console.log(`${hour} is in the present`);
-//     $(`#input-${dataTarget}`).addClass('present');
-// }
-// console.log(dataTarget);
-// console.log(hour);
-// console.log(currentHour);
-// if (hour > currentHour) {
-//     // console.log(`${hour} is in the future`);
-//     $(`#input-${dataTarget}`).addClass('future');
-// }
