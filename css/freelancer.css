@@ -9764,7 +9764,7 @@ input:focus {
 }
 
 .calendar {
-  margin-top: 2rem;
+  margin-top: 6rem !important;
 }
 
 .hours,

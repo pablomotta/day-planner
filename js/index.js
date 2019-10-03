@@ -1,21 +1,18 @@
 var workHoursArr = [
-    { id: '0', time: '9AM' },
-    { id: '1', time: '10AM' },
-    { id: '2', time: '11AM' },
-    { id: '3', time: '12PM' },
-    { id: '4', time: '1PM' },
-    { id: '5', time: '2PM' },
-    { id: '6', time: '3PM' },
-    { id: '7', time: '4PM' },
-    { id: '8', time: '5PM' }
+    { id: '0', time: '9AM', hourInt: 9 },
+    { id: '1', time: '10AM', hourInt: 10 },
+    { id: '2', time: '11AM', hourInt: 11 },
+    { id: '3', time: '12PM', hourInt: 12 },
+    { id: '4', time: '1PM', hourInt: 13 },
+    { id: '5', time: '2PM', hourInt: 14 },
+    { id: '6', time: '3PM', hourInt: 15 },
+    { id: '7', time: '4PM', hourInt: 16 },
+    { id: '8', time: '5PM', hourInt: 17 }
 ];
 
 // create calendar time slots
 function addTimeSlots(schedule) {
     schedule.forEach(item => {
-        var currentHour = moment().format('hA');
-        // console.log(currentHour);
-
         var $div = $('<div class="hours col-md-1 col-sm-1"></div>');
         var $input = $('<input>');
         var $btn = $(
@@ -36,20 +33,7 @@ function addTimeSlots(schedule) {
             target: dataTarget,
             id: `button-${dataTarget}`
         });
-        $input.addClass('events col-md-10 col-sm-10 future');
-
-        if (hour < currentHour) {
-            console.log(`${hour} is in the past`);
-            $(`#input-${dataTarget}`).addClass('past');
-        }
-        if (hour === currentHour) {
-            console.log(`${hour} is in the present`);
-            $(`#input-${dataTarget}`).addClass('present');
-        }
-        if (hour > currentHour) {
-            console.log(`${hour} is in the future`);
-            $(`#input-${dataTarget}`).addClass('future');
-        }
+        $input.addClass('events col-md-10 col-sm-10');
 
         $('#time-slots').append($div, $input, $btn);
         $btn.prop('disabled', true);
@@ -79,5 +63,40 @@ $('.events').on('click', function() {
     $('.save-button').prop('disabled', true);
 });
 
-// var time = moment().format('hA');
-// console.log(time);
+workHoursArr.forEach(function(item) {
+    var $inputSelected = $(`#input-${item.id}`);
+    console.log($inputSelected);
+    var currentHour = moment().format('k');
+    var currentHourInt = parseInt(currentHour);
+    // console.log(currentHourInt);
+    var calendarHour = item.hourInt;
+    console.log(calendarHour);
+    if (currentHourInt === calendarHour) {
+        $inputSelected.addClass('present');
+    }
+    if (currentHourInt > calendarHour) {
+        $inputSelected.addClass('past');
+    }
+    if (currentHourInt < calendarHour) {
+        $inputSelected.addClass('future');
+    }
+});
+//
+// var currentHour = moment().format('h');
+// console.log(currentHour);
+
+// if (hour < currentHour) {
+//     // console.log(`${hour} is in the past`);
+//     $(`#input-${dataTarget}`).addClass('past');
+// }
+// if (hour === currentHour) {
+//     // console.log(`${hour} is in the present`);
+//     $(`#input-${dataTarget}`).addClass('present');
+// }
+// console.log(dataTarget);
+// console.log(hour);
+// console.log(currentHour);
+// if (hour > currentHour) {
+//     // console.log(`${hour} is in the future`);
+//     $(`#input-${dataTarget}`).addClass('future');
+// }
