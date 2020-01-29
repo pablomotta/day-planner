@@ -17,6 +17,8 @@ With this app users can:
 -   Use the 9am to 5pm calendar to store events and update events
 -   Events are saved to localStorage, therefore use input won't be lost on page reload.
 
----
+## Prerequisites
 
-© 2019 Pablo Motta
+-   Web browser such as Google Chrome or Safari
+
+© 2020 Pablo Motta
