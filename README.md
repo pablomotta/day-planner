@@ -25,4 +25,8 @@ With this app users can:
 
 -   This application will run automatically when opened by any modern web browser like the ones listed above.
 
+## Author
+
+-   **Pablo Motta** - [github profile](https://github.com/pablomotta)
+
 © 2020 Pablo Motta
