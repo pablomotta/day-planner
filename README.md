@@ -1,4 +1,4 @@
-# work-day-scheduler
+# The Day Planner
 
 ![password generator demo](./img/work-day-scheduler.png)
 
