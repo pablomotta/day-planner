@@ -21,4 +21,8 @@ With this app users can:
 
 -   Web browser such as Google Chrome or Safari
 
+## Installation
+
+-   This application will run automatically when opened by any modern web browser like the ones listed above.
+
 © 2020 Pablo Motta
