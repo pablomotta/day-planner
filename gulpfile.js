@@ -108,25 +108,6 @@ function css() {
         .pipe(browsersync.stream());
 }
 
-// JS task
-// function js() {
-//     return gulp
-//         .src(['./js/*.js', '!./js/*.min.js'])
-//         .pipe(uglify())
-//         .pipe(
-//             header(banner, {
-//                 pkg: pkg
-//             })
-//         )
-//         .pipe(
-//             rename({
-//                 suffix: '.min'
-//             })
-//         )
-//         .pipe(gulp.dest('./js'))
-//         .pipe(browsersync.stream());
-// }
-
 // Watch files
 function watchFiles() {
     gulp.watch('./scss/**/*', css);
