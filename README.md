@@ -17,6 +17,20 @@ With this app users can:
 -   Use the 9am to 5pm calendar to store events and update events
 -   Events are saved to localStorage, therefore use input won't be lost on page reload.
 
----
+## Prerequisites
 
-© 2019 Pablo Motta
+-   Web browser such as Google Chrome or Safari
+
+## Installation
+
+-   This application will run automatically when opened by any modern web browser like the ones listed above.
+
+## Author
+
+-   **Pablo Motta** - [github profile](https://github.com/pablomotta)
+
+## Live App
+
+[Click here to visit the live website.](https://pablomotta.github.io/day-planner/)
+
+© 2020 Pablo Motta
