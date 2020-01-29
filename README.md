@@ -29,4 +29,8 @@ With this app users can:
 
 -   **Pablo Motta** - [github profile](https://github.com/pablomotta)
 
+## Live App
+
+[Click here to visit the live website.](https://pablomotta.github.io/day-planner/)
+
 © 2020 Pablo Motta
