@@ -63,6 +63,7 @@ $('.events').on('click', function() {
     $('.save-button').prop('disabled', true);
 });
 
+// loop each work hour and add appropriate css class based on past, present or future.
 workHoursArr.forEach(function(item) {
     var $inputSelected = $(`#input-${item.id}`);
     var currentHour = moment().format('k');
