@@ -1,6 +1,6 @@
 # The Day Planner
 
-![password generator demo](./img/work-day-scheduler.png)
+![work day scheduler demo](./img/work-day-scheduler.png)
 
 ## Description
 
